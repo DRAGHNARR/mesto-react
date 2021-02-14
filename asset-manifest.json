@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.3f3284b6.chunk.css",
+    "main.js": "/my-app/static/js/main.45cb8444.chunk.js",
+    "main.js.map": "/my-app/static/js/main.45cb8444.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.cb81a747.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.cb81a747.js.map",
+    "static/js/2.24dbd916.chunk.js": "/my-app/static/js/2.24dbd916.chunk.js",
+    "static/js/2.24dbd916.chunk.js.map": "/my-app/static/js/2.24dbd916.chunk.js.map",
+    "static/js/3.2c629e38.chunk.js": "/my-app/static/js/3.2c629e38.chunk.js",
+    "static/js/3.2c629e38.chunk.js.map": "/my-app/static/js/3.2c629e38.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/main.3f3284b6.chunk.css.map": "/my-app/static/css/main.3f3284b6.chunk.css.map",
+    "static/js/2.24dbd916.chunk.js.LICENSE.txt": "/my-app/static/js/2.24dbd916.chunk.js.LICENSE.txt",
+    "static/media/head__logo.ff16f24b.svg": "/my-app/static/media/head__logo.ff16f24b.svg",
+    "static/media/index.css": "/my-app/static/media/who__figure-eddit.a086f758.svg",
+    "static/media/who__figure.c15cb08a.jpg": "/my-app/static/media/who__figure.c15cb08a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb81a747.js",
+    "static/js/2.24dbd916.chunk.js",
+    "static/css/main.3f3284b6.chunk.css",
+    "static/js/main.45cb8444.chunk.js"
+  ]
+}
