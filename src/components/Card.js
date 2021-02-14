@@ -1,4 +1,4 @@
-function Card({card, onCardClick}) {
+function Card({card, onCardClick, onDeleteClick}) {
   
   function handleClick() {
     onCardClick(card);
@@ -9,7 +9,7 @@ function Card({card, onCardClick}) {
       <figure className="post__box">
         <div className="post__frame">
           <img src={card.src} alt="Изображение карточки" className="post__figure" onClick={handleClick}/>
-          <button className="post__button-remove" type="button"></button>
+          <button className="post__button-remove" type="button" onClick={onDeleteClick  }></button>
         </div>
         <figcaption className="post__caption">
           <h2 className="post__title">{card.name}</h2>

@@ -3,7 +3,7 @@ import Card from "./Card";
 import whoFigure from "../images/who/__figure/who__figure.jpg";
 import api from "../utils/Api";
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onDeletePlace, onCardClick}) {
   const [userName, setUserName] = React.useState("default");
   const [userDescription, setUserDescription] = React.useState("default");
   const [userAvatar, setUserAvatar] = React.useState(whoFigure);
@@ -55,7 +55,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
       <section className="posts page__posts">
         <ul className="posts__box">
           {
-            cards.map(card => <Card key={card.key} card={card} onCardClick={onCardClick}/>)
+            cards.map(card => <Card key={card.key} card={card} onCardClick={onCardClick} onDeleteClick={onDeletePlace}/>)
           }
         </ul>
       </section>
