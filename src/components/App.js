@@ -155,18 +155,18 @@ function App() {
       <CardsContext.Provider value={cards}>
         <div className="page">
           <div className="page__box">
-                <Header/>
-                <Main 
-                  onEditAvatar={handleEditAvatarClick} 
-                  onEditProfile={handleEditProfileClick} 
-                  onAddPlace={handleAddPlaceClick} 
-                  onDeletePlace={handleDeletePlaceClick} 
-                  onCardClick={handleCardClick} 
-                  setCards={setCards}
-                  cards={cards}
-                  onCardLike={handleCardLike}
-                  onCardDelete={handleCardDelete}/>
-                <Footer/>
+            <Header/>
+            <Main 
+              onEditAvatar={handleEditAvatarClick} 
+              onEditProfile={handleEditProfileClick} 
+              onAddPlace={handleAddPlaceClick} 
+              onDeletePlace={handleDeletePlaceClick} 
+              onCardClick={handleCardClick} 
+              setCards={setCards}
+              cards={cards}
+              onCardLike={handleCardLike}
+              onCardDelete={handleCardDelete}/>
+            <Footer/>
           </div>
 
           <EditAvatarPopup 
