@@ -53,90 +53,94 @@ function App() {
 
   function handleUpdateUser(user) {
     api.setUserInfo(user)
-      .then((answer) => {
+      .then((response) => {
         setCurrentUser({
-          key: answer._id,
-          name: answer.name,
-          desc: answer.about,
-          pic: answer.avatar
+          key: response._id,
+          name: response.name,
+          desc: response.about,
+          pic: response.avatar
+        });
+        closeAllPopups();
+      })
+      .catch(error => {
+        console.log(error);
+        setCurrentUser({
+          key: "0",
+          name: "BIG BADABOOM",
+          desc: "SORRY, BUT WE HAVE SOME TROUBLES.",
+          pic: "https://s5o.ru/storage/simple/cyber/edt/d1/d9/85/c0/cyberea2fce3ee29.jpg"
         });
       });
   }
 
   function handleUpdateAvatar(pic) {
     api.setUserPic(pic)
-      .then((answer) => {
+      .then((response) => {
         setCurrentUser({
-          key: answer._id,
-          name: answer.name,
-          desc: answer.about,
-          pic: answer.avatar
+          key: response._id,
+          name: response.name,
+          desc: response.about,
+          pic: response.avatar
+        });
+        closeAllPopups();
+      })
+      .catch(error => {
+        console.log(error);
+        setCurrentUser({
+          key: "0",
+          name: "BIG BADABOOM",
+          desc: "SORRY, BUT WE HAVE SOME TROUBLES.",
+          pic: "https://s5o.ru/storage/simple/cyber/edt/d1/d9/85/c0/cyberea2fce3ee29.jpg"
         });
       });
   }
 
   function handleAddCard({name, pic}) {
     api.setCard(name, pic)
-      .then((answer) => {
-          setCards([{
-            key: answer._id,
-            name: answer.name,
-            pic: answer.link,
-            likes: answer.likes,
-            owner: answer.owner._id,
-            deletable: currentUser.key === answer.owner._id,
-            liked: answer.likes.some(item => item._id === currentUser.key)
-          }, ...cards]);
+      .then((response) => {
+          setCards([response, ...cards]);
+          closeAllPopups();
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 
   function handleCardLike(card) {
-    api.likeCard(card.key, card.liked)
-      .then(answer => {
+    api.likeCard(card._id, card.likes.some(item => item._id === currentUser.key))
+      .then(response => {
         setCards(cards.map(item => {
-          return item.key === answer._id ? {
-            key: answer._id,
-            name: answer.name,
-            pic: answer.link,
-            likes: answer.likes,
-            owner: answer.owner._id,
-            deletable: answer._id === currentUser.key,
-            liked: answer.likes.some(item => item._id === currentUser.key)
-          } : item;
+          return item._id === response._id ? response : item;
         }));
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 
   function handleCardDelete(card) {
-    api.deleteCard(card.key)
-      .then(answer => {
+    api.deleteCard(card._id)
+      .then(response => {
         setCards(cards.filter(item => {
-          return item.key !== card.key;
+          return item._id !== card._id;
         }));
+        closeAllPopups();
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 
   React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.getCards()])
-      .then(answers => {
+      .then(response => {
         setCurrentUser({
-          key: answers[0]._id,
-          name: answers[0].name,
-          desc: answers[0].about,
-          pic: answers[0].avatar
+          key: response[0]._id,
+          name: response[0].name,
+          desc: response[0].about,
+          pic: response[0].avatar
         });
-
-        setCards(answers[1].map((item) => {
-          return ({
-            key: item._id,
-            name: item.name,
-            pic: item.link,
-            likes: item.likes,
-            owner: item.owner._id,
-            deletable: answers[0]._id === item.owner._id,
-            liked: item.likes.some(item => item._id === answers[0]._id)
-          });
-        }));
+        setCards(response[1]);
       })
       .catch(error => {
         console.log(error);

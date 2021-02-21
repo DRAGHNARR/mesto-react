@@ -21,7 +21,8 @@ export default function AddPlacePopup({isOpen, onClose, ...props}) {
       pic
     });
 
-    onClose();
+    setName("");
+    setPic("");
   }
 
   return (
@@ -32,9 +33,9 @@ export default function AddPlacePopup({isOpen, onClose, ...props}) {
       buttonTitle="Сохранить"
       onClose={onClose}
       onSubmit={handleAddPlaceSubmit}>
-      <input id="post-title" onChange={handleNameChange} className="popup__input" type="text" name="post_title"  minLength="2" maxLength="30" required placeholder="Название"/>
+      <input value={name} id="post-title" onChange={handleNameChange} className="popup__input" type="text" name="post_title"  minLength="2" maxLength="30" required placeholder="Название"/>
       <span id="post-title-error" className="popup__input-error"></span>
-      <input id="post-image" onChange={handlePicChange} className="popup__input" type="url" name="post_image" required placeholder="Ссылка на картинку"/>
+      <input value={pic} id="post-image" onChange={handlePicChange} className="popup__input" type="url" name="post_image" required placeholder="Ссылка на картинку"/>
       <span id="post-image-error" className="popup__input-error"></span>
     </PopupWithForm>
   );

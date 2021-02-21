@@ -27,8 +27,6 @@ export default function EditProfilePopup({isOpen, onClose, ...props}) {
       name,
       desc
     });
-
-    onClose();
   }
 
   return (

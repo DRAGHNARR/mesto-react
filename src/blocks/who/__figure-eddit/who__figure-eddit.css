@@ -33,24 +33,19 @@
   background-repeat: no-repeat;
   opacity: 0;
 }
+
 .who__figure-eddit:hover::before {
   opacity: 1;
   transition: opacity;
 }
-@media screen and (max-width: 700px) {
-  .who__figure-eddit {
-    left: -90px;
-  }
-  .who__figure-eddit::before{
-    left: -45px;
-  }
-}
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 882px) {
   .who__figure-eddit {
     left: 0px;
     top: -70px;
   }
   .who__figure-eddit::before{
-    left: -50px;
+    left: -50.75px;
+    top: -57.5px;
   }
 }

@@ -12,11 +12,11 @@ class Api {
 
   getUserInfo() {
     return fetch(this.userUrl, {headers: this.header})
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 
@@ -29,11 +29,11 @@ class Api {
         about: desc
       })
     })
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 
@@ -45,21 +45,21 @@ class Api {
         avatar: pic
       })
     })
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 
   getCards() {
     return fetch(this.cardUrl, {headers: this.header})
-      .then(answer => {
-        if (answer.ok) {
-          return answer.json();
+      .then(response => {
+        if (response.ok) {
+          return response.json();
         }
-        return Promise.reject(`Ошибка: ${answer.status}`);
+        return Promise.reject(`Ошибка: ${response.status}`);
       });
   }
 
@@ -72,11 +72,11 @@ class Api {
         link: pic
       })
     })
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 
@@ -85,11 +85,11 @@ class Api {
       method: 'DELETE',
       headers: this.header
     })
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 
@@ -98,11 +98,11 @@ class Api {
       method: !isLiked ? 'PUT' : 'DELETE',
       headers: this.header
     })
-    .then(answer => {
-      if (answer.ok) {
-        return answer.json();
+    .then(response => {
+      if (response.ok) {
+        return response.json();
       }
-      return Promise.reject(`Ошибка: ${answer.status}`);
+      return Promise.reject(`Ошибка: ${response.status}`);
     });
   }
 }

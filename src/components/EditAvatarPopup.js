@@ -8,8 +8,8 @@ export default function EditAvatarPopup({isOpen, onClose, ...props}) {
     event.preventDefault();
   
     props.onUpdatePic(picRef.current.value);
-    
-    onClose();
+
+    picRef.current.value = "";
   } 
 
   return (

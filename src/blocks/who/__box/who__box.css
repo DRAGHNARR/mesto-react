@@ -8,5 +8,6 @@
 @media screen and (max-width: 882px) {
   .who__box {
     flex-direction: column;
+    align-items: center;
   }
 }
